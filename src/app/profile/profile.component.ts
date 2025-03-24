@@ -1,45 +1,48 @@
-import { Component } from "@angular/core";
+import { Component, signal } from "@angular/core";
 
 
 @Component({
     selector: 'app-profile',
     templateUrl: "./profile.component.html",
-    styleUrls: ["./profile.component.css","./extra.style.css"],
+    styleUrls: ["./profile.component.css", "./extra.style.css"],
 
 })
 
 export class ProfileComponent {
-    count = 0;
-    handelCounter(value: string) {
-        if (value === "increment") {
-            this.count++
-        } else if (value === "decrement") {
-            if (this.count > 0) {
-                this.count--
+    x = signal(90)
+    y = signal(10)
+
+    updateX() {
+        this.x.set(100)
+    }
+
+    users = [
+        {
+            name: "John Doe",
+            age: 30,
+            address: {
+                street: "50 Main street",
+                city: "Boston",
+                state: "MA"
             }
-
-        } else {
-            this.count = 0;
+        },
+        {
+            name: "Jane Doe",
+            age: 25,
+            address: {
+                street: "20 School street",
+                city: "Somerville",
+                state: "MA"
+            }
+        },
+        {
+            name: "Nancy Doe",
+            age: 35,
+            address: {
+                street: "55 Harvard street",
+                city: "Cambridge",
+                state: "MA"
+            }
         }
-
-    }
-
-    eventFunction(event: MouseEvent) {
-        //console event name
-        console.log(event.type);
-    }
-
-    display = false
-
-    toggle(){
-        this.display = !this.display
-    }
-
-    users = ['ALi', 'usman','haider']
-    students = [
-        {name: 'Ali', age: 20},
-        {name: 'Usman', age: 21},
-        {name: 'Haider', age: 22},
     ]
-
 }

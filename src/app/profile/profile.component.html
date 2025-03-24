@@ -1,21 +1,14 @@
 <h1>
-    hello Ali where are you?
-
+    {{x()+y()}}
 </h1>
 
-<button (click)="toggle()">{{!display?"show":"hide"}}</button>
-@if (display) {
-    <p>we are waiting for you when will you arrive??</p>
-}
-<h1>{{count}}</h1>
-<div class="hello">
+<button (click)="updateX()">Call</button>
 
-    @for (user of users; track $index) {
-        <h1>{{user}}</h1>
-    }
-
-    @for (student of students; track $index) {
-        <h1>{{student.name}}</h1>
-        <h1>{{student.age}}</h1>
-    }
+@for (user of users; track user; let i = $index) {
+<div>
+    index:{{i}}
+    last:{{$last}}
+    <h1>{{user.name}}</h1>
+    <h2>{{user.age}}</h2>
 </div>
+}
