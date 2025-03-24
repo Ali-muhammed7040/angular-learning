@@ -1,0 +1,21 @@
+<h1>
+    hello Ali where are you?
+
+</h1>
+
+<button (click)="toggle()">{{!display?"show":"hide"}}</button>
+@if (display) {
+    <p>we are waiting for you when will you arrive??</p>
+}
+<h1>{{count}}</h1>
+<div class="hello">
+
+    @for (user of users; track $index) {
+        <h1>{{user}}</h1>
+    }
+
+    @for (student of students; track $index) {
+        <h1>{{student.name}}</h1>
+        <h1>{{student.age}}</h1>
+    }
+</div>
